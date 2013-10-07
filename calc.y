@@ -79,7 +79,7 @@ toplevel: expr     { printf("%g\n\n>> ", $1); }
 expr:  NUMBER                  { $$ = $1; }
        | NAME                  { $$ = $1->value; }
        | NAME '=' expr         { $1->value = $3; $$ = $3; }
-       | expr EQ expr      { $$ = $1 == $3; }
+       | expr EQ expr          { $$ = $1 == $3; }
        | expr '+' expr         { $$ = $1 + $3; }
        | expr '-' expr         { $$ = $1 - $3; }
        | expr '*' expr         { $$ = $1 * $3; }
@@ -127,8 +127,7 @@ char *s;
 void printHelp() 
 { /* print calculator help and return */
   printf("Enter an expression in infix notation followed by a newline.\n");
-  printf("Operators include +, -, * and =.  Defined functions include\n");
-  printf("sqrt, exp and log.  You can assign a variable using the =\n");
+  printf("Operators include +, -, * and =.  Assign variables using the =\n");
   printf("operator. Type . to exit.  Syntax errors will terminate the\n");
   printf("program, so be careful.\n");
 }
